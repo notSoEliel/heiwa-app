@@ -1,13 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Cargar las fuentes desde tu carpeta de assets */
+
+/* Light */
+@font-face {
+  font-family: 'AirbnbCereal_W';
+  src: url('./assets/fonts/AirbnbCereal_W_Lt.otf') format('opentype');
+  font-weight: 300; /* Light */
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Black (Bk) */
+@font-face {
+  font-family: 'AirbnbCereal_W';
+  src: url('./assets/fonts/AirbnbCereal_W_Bk.otf') format('opentype');
+  font-weight: 400; /* Black (con peso 400) */
+  font-style: normal;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'AirbnbCereal_W';
+  src: url('./assets/fonts/AirbnbCereal_W_Md.otf') format('opentype');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'AirbnbCereal_W';
+  src: url('./assets/fonts/AirbnbCereal_W_Bd.otf') format('opentype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+/* Extra Bold */
+@font-face {
+  font-family: 'AirbnbCereal_W';
+  src: url('./assets/fonts/AirbnbCereal_W_XBd.otf') format('opentype');
+  font-weight: 800; /* Extra Bold */
+  font-style: normal;
+}
+
+/* Bold Black */
+@font-face {
+  font-family: 'AirbnbCereal_W';
+  src: url('./assets/fonts/AirbnbCereal_W_Blk.otf') format('opentype');
+  font-weight: 900; /* Bold Black */
+  font-style: normal;
+}
+
+/* Definir la familia de fuentes en el body y asegurar que se use en todo el sitio */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #F7F8FA;
+  font-family: 'AirbnbCereal_W', sans-serif;
+  font-weight: 500;
 }
