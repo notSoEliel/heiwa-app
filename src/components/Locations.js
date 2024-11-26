@@ -1,6 +1,6 @@
 import React from 'react';
 import Panama from '../assets/svg/panama-mapa.svg';
-import Mascot from '../assets/img/mascot.png'; // Imagen de la mascota
+import Mascot from '../assets/img/mascot.png';
 
 const branches = [
     { name: 'Market Plaza', location: 'Costaverde, La Chorrera', link: 'https://maps.app.goo.gl/3gYrLfixuFBhGUPE8' },
@@ -12,7 +12,7 @@ const branches = [
 
 const Locations = () => {
     return (
-        <section id='sucursales' className="py-5" style={{ backgroundColor: '#F7F8FA' }}>
+        <section id="sucursales" className="py-5" style={{ backgroundColor: '#F7F8FA' }}>
             <div className="container">
                 {/* Título */}
                 <h2 className="text-center" style={{ color: '#0F1423', fontWeight: '900' }}>
@@ -21,7 +21,7 @@ const Locations = () => {
 
                 {/* Primera fila */}
                 <div className="row align-items-center my-5">
-                    <div className="col-md-4 text-center" style={{ padding: '0 110px' }}>
+                    <div className="col-md-4 text-center">
                         <h1 style={{ fontSize: '10rem', color: '#0F1423', fontWeight: '900', marginBottom: '2px' }}>
                             5
                         </h1>
@@ -42,7 +42,6 @@ const Locations = () => {
                     <div className="col-md-8">
                         <img
                             src={Panama}
-                            fill='#0F1423'
                             alt="Mapa de Panamá"
                             className="img-fluid rounded"
                             style={{ width: '100%' }}
@@ -51,21 +50,13 @@ const Locations = () => {
                 </div>
 
                 {/* Segunda fila */}
-                <div
-                    className="row justify-content-center"
-                    style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        alignItems: 'stretch',
-                        gap: '15px',
-                    }}
-                >
+                <div className="row justify-content-center">
                     {branches.map((branch, index) => (
                         <div
                             key={index}
-                            className="col-md-2 d-flex flex-column align-items-center text-center justify-content-end"
+                            className="col-md-2 d-flex flex-column align-items-center text-center"
                             style={{
-                                minHeight: '120px', // Altura uniforme
+                                minHeight: '120px', 
                                 padding: '10px',
                             }}
                         >
@@ -83,7 +74,7 @@ const Locations = () => {
                                         minWidth: '8em',
                                         marginRight: '5px',
                                         borderRadius: '50px',
-                                        fontWeight:'700'
+                                        fontWeight: '700',
                                     }}
                                 >
                                     Reservar
@@ -95,11 +86,11 @@ const Locations = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-outline-secondary btn-sm"
-                                    style={{ 
-                                        minWidth: '8em',    
-                                        borderColor: '#11639B', 
-                                        color: '#11639B', 
-                                        borderRadius: '50px', 
+                                    style={{
+                                        minWidth: '8em',
+                                        borderColor: '#11639B',
+                                        color: '#11639B',
+                                        borderRadius: '50px',
                                     }}
                                 >
                                     Ver en Mapa
