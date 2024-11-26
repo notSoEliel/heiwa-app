@@ -6,9 +6,9 @@ import ramen3 from '../../assets/img/ramen3.png';
 
 const FavRamen = () => {
     const ramens = [
-        { img: ramen1, name: 'Ramen Clásico', price: '$12.00' },
-        { img: ramen2, name: 'Ramen Especial', price: '$15.00' },
-        { img: ramen3, name: 'Ramen Picante', price: '$13.00' },
+        { img: ramen1, name: 'Ramen Clásico', price: '12.00' },
+        { img: ramen2, name: 'Ramen Especial', price: '15.00' },
+        { img: ramen3, name: 'Ramen Picante', price: '13.00' },
     ];
 
     return (
@@ -52,9 +52,16 @@ const FavRamen = () => {
                                         fontSize: '1.3rem',
                                     }}
                                 >
-                                    {ramen.price}
+                                    ${ramen.price}
                                 </p>
-                                <BuyButton style={{ width: '150px', margin: '0 auto' }} />
+                                <BuyButton 
+                                    product={{ 
+                                        id: index + 1, // Generar un ID único para cada producto
+                                        name: ramen.name, 
+                                        price: parseFloat(ramen.price) 
+                                    }} 
+                                    style={{ width: '150px', margin: '0 auto' }} 
+                                />
                             </div>
                         </div>
                     ))}
