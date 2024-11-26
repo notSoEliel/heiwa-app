@@ -6,7 +6,7 @@ const Matcha = () => {
     const matchaPrice = "3.00";
 
     return (
-        <section style={{ backgroundColor: '#F7F8FA', padding: '40px 0 140px', position: 'relative'}}>
+        <section id="matcha" style={{ backgroundColor: '#F7F8FA', padding: '40px 0 140px', position: 'relative'}}>
             <div className="container">
                 <h2 style={{ color: '#0D2B45', fontWeight: '500', fontSize:"3rem", textAlign:'center', margin:'0 0 100px'}}>Primera taza de paz</h2>
                 <div className="row align-items-center">
