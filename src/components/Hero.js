@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Hero.css';
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Hero = () => {
                         className="d-block w-100"
                         src={slide.src}
                         alt={slide.alt}
-                        style={{ maxHeight: '750px', minHeight: '300px', objectFit: 'cover' }}
+                        style={{ Height: '750px', objectFit: 'cover' }}
                     />
                     <Carousel.Caption
                         style={{
@@ -45,25 +46,13 @@ const Hero = () => {
                             textAlign: 'center',
                         }}
                     >
-                        <h3
-                            style={{
-                                fontSize: '1.5rem',
-                                display: 'inline-block',
-                                backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                                padding: '5px 10px',
-                                borderRadius: '5px',
-                                color: '#F7F8FA',
-                                fontWeight: 'bold',
-                                marginBottom: '10px',
-                            }}
-                        >
+                        <h3>
                             {slide.caption}
                         </h3>
                         <div>
                             <button
                                 className="btn btn-danger"
                                 onClick={slide.action}
-                                style={{ fontWeight: 'bold', padding: '10px 20px' }}
                             >
                                 Ir al menú
                             </button>
