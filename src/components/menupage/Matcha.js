@@ -1,15 +1,17 @@
 import React from 'react';
 import matcha from '../../assets/img/matcha.png';
 import BuyButton from '../BuyButton';
+import '../../styles/Matcha.css'
+
 
 const Matcha = () => {
     const matchaPrice = "3.00";
 
     return (
-        <section style={{ backgroundColor: '#F7F8FA', padding: '40px 0 140px', position: 'relative'}}>
+        <section id="matcha" style={{ backgroundColor: '#F7F8FA', padding: '40px 0 140px', position: 'relative'}}>
             <div className="container">
                 <h2 style={{ color: '#0D2B45', fontWeight: '500', fontSize:"3rem", textAlign:'center', margin:'0 0 100px'}}>Primera taza de paz</h2>
-                <div className="row align-items-center">
+                <div className="row align-items-center justify-content-center">
                     <div className="col-md-6">
                         <div
                             style={{
@@ -22,16 +24,16 @@ const Matcha = () => {
                                 left: '-350px', 
                                 transform: 'translateY(-50%)', 
                             }}
+                            className="matcha-circle"
                         ></div>
                         <img
                             src={matcha}
                             alt="Matcha"
                             className="img-fluid"
                             style={{ 
+                                zIndex: 1, 
                                 width: '600px',
                                 height: '600px',
-                                minWidth: '400px',
-                                minHeight: '400px',
                                 position: 'relative', 
                                 objectFit: 'contain',
                             }}

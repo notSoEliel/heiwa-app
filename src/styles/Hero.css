@@ -1,0 +1,68 @@
+/* Estilos generales */
+.carousel-caption h3 {
+    font-size: 1.5rem; /* Ajustar el tamaño del texto */
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #F7F8FA;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.carousel-caption button {
+    font-weight: bold;
+    padding: 10px 20px; 
+}
+
+/* Laptops pequeñas */
+@media (max-width: 1200px) {
+    .carousel-caption h3 {
+        font-size: 1rem; /* Ajustar el tamaño del texto */
+    }
+
+    .carousel-caption button {
+        padding: 4px 8px; /* Ajustar el tamaño del botón */
+    }
+}
+
+/* Para dispositivos medianos (Mobile-L) */
+@media (max-width: 992px) {
+    .carousel-caption h3 {
+        font-size: 0.7rem; /* Ajustar el tamaño del texto */
+    }
+
+    .carousel-caption button {
+        font-size: 0.7rem; /* Ajustar el tamaño del texto */
+        padding: 4px 8px; /* Ajustar el tamaño del botón */
+    }
+}
+
+/* Para dispositivos pequeños (Mobile-M) */
+@media (max-width: 768px) {
+    .carousel-caption h3 {
+        display: none;
+    }
+
+    .carousel-caption button {
+        font-size: 0.7rem; /* Ajustar el tamaño del texto */
+        padding: 4px 8px; /* Ajustar el tamaño del botón */
+    }
+}
+
+/* Para dispositivos muy pequeños (Mobile-S) */
+@media (max-width: 576px) {
+    .carousel-caption h3 {
+        display: none;
+    }
+
+    .carousel-caption button {
+        font-size: 0.4rem; /* Ajustar el tamaño del texto */
+        padding: 4px 8px; /* Ajustar el tamaño del botón */
+    }
+}
+
+
+
+
+

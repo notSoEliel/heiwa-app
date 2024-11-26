@@ -1,0 +1,87 @@
+/* Contenedor principal de la galería */
+.gallery-container {
+    background-color: #F7F8FA;
+    padding: 40px 140px;
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #BC002D;
+    font-weight: 900;
+}
+
+/* Estilo para las filas */
+.gallery-row {
+    margin: 0;
+}
+
+/* Estilo para las columnas */
+.gallery-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de cada imagen */
+.gallery-image-wrapper {
+    position: relative;
+    width: 100%; /* Asegura que use el ancho completo de la columna */
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    height: 0;
+    padding-top: 66.67%; /* Relación de aspecto 3:2 */
+}
+
+.gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-image-wrapper:hover .gallery-image {
+    filter: brightness(50%);
+    transform: scale(1.05);
+}
+
+/* Texto que aparece en hover */
+.gallery-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+}
+
+.gallery-image-wrapper:hover .gallery-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .gallery-container {
+        padding: 20px;
+    }
+    .gallery-title {
+        font-size: 1.5rem;
+    }
+    .gallery-image-wrapper {
+        padding-top: 100%; /* Cambia a relación 1:1 para pantallas pequeñas */
+    }
+    .gallery-text {
+        font-size: 1rem;
+    }
+}

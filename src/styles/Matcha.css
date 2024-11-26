@@ -1,0 +1,104 @@
+/* Estilos para pantallas móviles pequeños (Mobile-S: hasta 320px) */
+@media (max-width: 320px) {
+    /* Reducir tamaño del círculo rojo */
+    div #matcha .matcha-circle {
+        max-width: 150px !important;
+        max-height: 150px !important;
+        left: 15px !important;
+        top: 25% !important; /* Ajustar la posición para que quede detrás de la imagen */
+    }
+
+    /* Ajustar la imagen de matcha */
+    div #matcha img {
+        width: 300px !important; /* Hacer la imagen más pequeña */
+        height: auto !important;
+        margin: 0 !important;
+        z-index: 1;
+    }
+}
+
+
+/* Estilos para pantallas móviles medianas (Mobile-M: 321px a 480px) */
+@media (max-width: 425px) {
+        /* Ajustar el tamaño del texto */
+    div #matcha h2 {
+        font-size: 2rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    div #matcha h3 {
+        font-size: 2rem !important;
+    }
+
+    div #matcha h4 {
+        font-size: 1.5rem !important;
+    }
+
+    div     #matcha p {
+        font-size: 1rem !important;
+    }
+}
+
+
+/* Estilos para pantallas pequeñas (menores de 768px) */
+@media (max-width: 767px) {
+    #matcha .container {
+        padding: 40px 20px;
+    }
+
+    /* Ajustar el tamaño del texto */
+    #matcha h2 {
+        font-size: 2.2rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    #matcha h3 {
+        font-size: 2.2rem !important;
+    }
+
+    #matcha h4 {
+        font-size: 1.7rem !important;
+    }
+
+    #matcha p {
+        font-size: 1.2rem !important;
+    }
+
+    /* Reducir tamaño del círculo rojo */
+    #matcha .matcha-circle {
+        max-width: 200px !important;
+        max-height: 200px !important;
+        left: 30px !important;
+        top: 25% !important; /* Ajustar la posición para que quede detrás de la imagen */
+    }
+
+    /* Ajustar la imagen de matcha */
+    #matcha img {
+        max-width: 100% !important; /* Hacer la imagen más pequeña */
+        height: auto !important;
+        margin: 0 !important;
+        z-index: 1;
+    }
+
+    /* Acomodar el contenido en una sola columna */
+    #matcha .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+            /* Estilos para centrar el botón en el contenedor */
+    #matcha .col-md-6 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;  /* Centra el contenido horizontalmente */
+        justify-content: center !important;  /* Centra el contenido verticalmente */
+    }
+
+    #matcha button {
+        margin-top: 20px !important;  /* Añadir margen superior para separarlo un poco */
+        width: 80% !important;  /* Asegurarse de que el botón no ocupe todo el ancho */
+        max-width: 250px !important;  /* Limitar el ancho máximo del botón */
+    }
+
+
+}

@@ -9,6 +9,7 @@ import Locations from '../components/Locations';
 import Footer from '../components/Footer';
 import AboutUsBanner from '../components/AboutUsBanner';
 import BotonesEnlaces from '../components/BotonesEnlaces';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
             <Reviews />
             <Locations />
             <Footer />
+            <ScrollToTopButton /> {/* Aquí usas el componente */}
         </>
     );
 };

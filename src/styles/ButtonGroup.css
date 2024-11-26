@@ -1,0 +1,69 @@
+/* Contenedor principal */
+.button-group-container {
+    background-color: #F7F8FA;
+    padding: 20px 0;
+}
+
+/* Botones */
+.custom-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 90px; /* Aumentamos el tamaño del círculo */
+    height: 90px; /* Aumentamos el tamaño del círculo */
+    margin: 10px auto;
+    background-color: #fff;
+    border: 2px solid #BB002D;
+    color: #BB002D;
+    font-weight: 700;
+    font-size: 0.75rem; /* Reducimos el tamaño del texto */
+    transition: all 0.3s ease;
+}
+
+/* Íconos */
+.icon {
+    font-size: 1.8rem; /* Ajustamos el tamaño del ícono */
+    margin-bottom: 5px;
+}
+
+/* Texto debajo del ícono */
+.button-text {
+    font-size: 0.7rem; /* Reducimos aún más el texto */
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Hover en íconos */
+.custom-button:hover {
+    background-color: #BB002D;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Estilo para pantallas grandes */
+@media (min-width: 768px) {
+    .custom-button {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        width: auto;
+        height: auto;
+        padding: 10px 30px;
+    }
+
+    .icon {
+        font-size: 1.5rem; /* Ajustamos el tamaño del ícono */
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+
+    .button-text {
+        font-size: 1rem; /* Aumentamos el texto para pantallas grandes */
+        margin: 0;
+    }
+}
+    

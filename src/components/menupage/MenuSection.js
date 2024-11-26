@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import BuyButton from '../BuyButton';
 import ramen1 from '../../assets/img/ramen-test2.png';
 import boyNaruto from '../../assets/img/boy-narutos.png';
-
-
-
+import '../../styles/MenuSection.css'; // Importamos los estilos CSS
 
 const MenuSection = () => {
     // Lista de productos
@@ -48,30 +46,21 @@ const MenuSection = () => {
             document.getElementById("menu-section").scrollIntoView({ behavior: "smooth" });
         }, 0);
     };
-    
-    
 
     // Total de páginas
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
     return (
-        <section id="menu-section" style={{ backgroundColor: '#BC002D', padding: '300px 0 100px' }}>
+        <section id="menu-section" className="menu-section">
             <div className="container">
                 {/* Título y Controles */}
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h2 style={{ color: "#F7F8FA", fontWeight: "900", fontSize: "4rem" }}>
+                <div className="menu-header d-flex justify-content-between align-items-center mb-4">
+                    <h2 className="menu-title">
                         Menú
                     </h2>
                     <div>
                         <select
-                            className="form-select me-2"
-                            style={{
-                                backgroundColor: "#F7F8FA",
-                                color: "#BC002D",
-                                fontWeight: "700",
-                                borderRadius: "50px",
-                                width: "200px",
-                            }}
+                            className="form-select category-select"
                             value={selectedCategory}
                             onChange={(e) => {
                                 setSelectedCategory(e.target.value);
@@ -88,66 +77,26 @@ const MenuSection = () => {
                 </div>
 
                 {/* Productos */}
-                <div className="row" style={{marginTop:'10px', paddingBottom: '80px'}}>
+                <div className="row menu-products">
                     {paginatedProducts.map((product) => (
                         <div key={product.id} className="col-md-4 mb-4 d-flex justify-content-center">
-                            <div
-                                className="position-relative"
-                                style={{
-                                    backgroundColor: '#F7F8FA',
-                                    border: 'solid #0F1423 3px',
-                                    boxShadow: '0px 4px 8px rgba(0,0,0,0.5)',
-                                    width: '100%',
-                                    paddingBottom: '40px', 
-                                    marginTop: '200px',
-                                }}
-                            >
-                                <div
-                                    className="position-absolute"
-                                    style={{
-                                        top: "-160px",
-                                        left: "50%",
-                                        transform: "translateX(-50%)",
-                                    }}
-                                >
+                            <div className="product-card">
+                                <div className="product-img-wrapper">
                                     <img
                                         src={product.image}
                                         alt={product.name}
-                                        className="img-fluid"
-                                        style={{
-                                            borderRadius: "15px",
-                                            width: "250px",
-                                            height: "250px",
-                                            objectFit: "cover",
-                                            overflow: "visible",
-                                        }}
+                                        className="product-img"
                                     />
                                 </div>
-                                <div
-                                    className="text-center d-flex flex-column align-items-center"
-                                    style={{ marginTop: "80px" }}
-                                >
-                                    <h5
-                                        style={{
-                                            color: "#0D2B45",
-                                            marginTop: "25px",
-                                            fontWeight: "900",
-                                            fontSize: "2rem",
-                                        }}
-                                    >
+                                <div className="text-center d-flex flex-column justify-content-end align-items-center product-info">
+                                    <h5 className="product-name">
                                         {product.name}
                                     </h5>
-                                    <p
-                                        style={{
-                                            color: "#13649D",
-                                            fontWeight: "700",
-                                            fontSize: "1.7rem",
-                                        }}
-                                    >
+                                    <p className="product-price">
                                         ${product.price.toFixed(2)}
                                     </p>
-                                    <div style={{ textAlign: "center" }}>
-                                        <BuyButton product={product} style={{ width: "150px", margin: "0 auto" }} />
+                                    <div className="buy-button-container">
+                                        <BuyButton product={product} className="buy-button" />
                                     </div>
                                 </div>
                             </div>
@@ -156,35 +105,34 @@ const MenuSection = () => {
                 </div>
 
                 {/* Paginación */}
-                <div className="d-flex justify-content-center mt-4">
-                <button
-                        className="btn btn-outline-light"
+                <div className="pagination d-flex justify-content-center align-items-center mt-4">
+                    <button
+                        className="btn btn-outline-light pagination-btn-ant"
                         disabled={currentPage === 1}
                         onClick={() => handlePageChange(currentPage - 1)}
-                        style={{ marginRight: "10px" }}
                     >
                         Anterior
                     </button>
-                    <span style={{ color: "#F7F8FA", fontWeight: "900" }}>
+                    <span className="pagination-text">
                         Página {currentPage} de {totalPages}
                     </span>
                     <button
-                        className="btn btn-outline-light"
+                        className="btn btn-outline-light pagination-btn-sig"
                         disabled={currentPage === totalPages}
                         onClick={() => handlePageChange(currentPage + 1)}
-                        style={{ marginLeft: "10px" }}
                     >
                         Siguiente
                     </button>
                 </div>
-            <div className="text-center mt-5">
-                <img
-                    src={boyNaruto}
-                    alt="Decoración Naruto"
-                    className="img-fluid"
-                    style={{ maxWidth: '300px', opacity: 0.8 }}
-                />
-            </div>
+
+                {/* Decoración */}
+                <div className="text-center mt-5">
+                    <img
+                        src={boyNaruto}
+                        alt="Decoración Chico Naruto"
+                        className="decoration-img"
+                    />
+                </div>
             </div>
         </section>
     );
