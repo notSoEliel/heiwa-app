@@ -19,7 +19,7 @@ const NavigationBar = () => {
                 <Nav className="ms-auto" style={{ justifyContent: 'right', width: '100%', marginRight: "140px", fontSize:"20px" }}>
                     <Nav.Link as={Link} to="/" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Home</Nav.Link>
                     <Nav.Link as={Link} to="/menu" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Menú</Nav.Link>
-                    <Nav.Link href="#reservas" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Reservas</Nav.Link>
+                    <Nav.Link as={Link} to="/reservation" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Reservas</Nav.Link>
                     <Nav.Link href="#nosotros" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Nosotros</Nav.Link>
                 </Nav>
                 {/* Carrito con más margen */}
