@@ -23,8 +23,8 @@ const ButtonGroup = () => {
                         </Link>
                     </Col>
                     <Col xs="auto" className="text-center">
-                        <Link 
-                            to="/sucursales" // Enlace a la página de Sucursales
+                        <a 
+                            href="#sucursales" // Enlace a la página de Sucursales
                             style={{
                                 textDecoration: 'none', 
                                 display: 'inline-block', 
@@ -35,11 +35,11 @@ const ButtonGroup = () => {
                                 fontWeight: 700
                             }}>
                             Sucursales
-                        </Link>
+                        </a>
                     </Col>
                     <Col xs="auto" className="text-center">
-                        <Link 
-                            to="/reseñas" // Enlace a la página de Reseñas
+                        <a 
+                            href='#reviews' // Enlace a la página de Reseñas
                             style={{
                                 textDecoration: 'none', 
                                 display: 'inline-block', 
@@ -50,7 +50,7 @@ const ButtonGroup = () => {
                                 fontWeight: 700
                             }}>
                             Reseñas
-                        </Link>
+                        </a>
                     </Col>
                 </Row>
             </Container>

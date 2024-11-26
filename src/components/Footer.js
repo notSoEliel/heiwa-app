@@ -4,7 +4,7 @@ import { FaEnvelope, FaPhone, FaMobileAlt, FaInstagram, FaFacebook, FaTiktok } f
 
 const Footer = () => {
     return (
-        <footer style={{ backgroundColor: '#BB002D', color: '#F7F8FA', padding: '40px 20px' }}>
+        <footer style={{ backgroundColor: '#BB002D', color: '#F7F8FA', padding: '60px 20px 10px' }}>
             <div className="container">
                 <div className="row">
                     {/* Columna Izquierda: Logo */}
@@ -13,7 +13,7 @@ const Footer = () => {
                             src={logo}
                             alt="Heiwa Logo"
                             style={{
-                                maxWidth: '100%',
+                                maxWidth: '70%',
                                 height: 'auto',
                                 margin: '0 auto',
                                 display: 'block',

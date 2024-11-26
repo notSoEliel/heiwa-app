@@ -60,7 +60,7 @@ const ReviewCard = ({ name, review, stars, image }) => {
 
 const Reviews = () => {
     return (
-        <section className="py-5" style={{ backgroundColor: '#BB002D', color: '#0F1423' }}>
+        <section id='reviews' className="py-5" style={{ backgroundColor: '#BB002D', color: '#0F1423' }}>
             <div className="container">
                 <h2 className="text-center mb-4" style={{ fontWeight: 'bold', color:'#F7F8FA' }}>
                     Reseñas de Clientes

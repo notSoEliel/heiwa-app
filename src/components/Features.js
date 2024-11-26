@@ -22,13 +22,15 @@ const Features = () => {
                             md={2}
                             className="d-flex flex-column align-items-center text-center mb-4"
                         >
-                            <img
-                                src={feature.icon}
-                                alt={feature.text}
-                                className="img-fluid mb-2"
-                                style={{ width: '60px' }}
-                            />
-                            <p style={{ color: '#0E1422', fontWeight: 'bold', marginBottom: '0' }}>
+                            <div style={{ width: 'auto', borderRadius: '50%', border: 'solid 2px #BC002D', padding: '20px', marginBottom:'1em' }}>
+                                <img
+                                    src={feature.icon}
+                                    alt={feature.text}
+                                    className="img-fluid"
+                                    style={{ width: '60px', marginBottom: '0' }}
+                                />
+                            </div>
+                            <p style={{ color: '#BC002D', fontWeight: 'bold', marginBottom: '0' }}>
                                 {feature.text}
                             </p>
                         </Col>

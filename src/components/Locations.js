@@ -1,18 +1,18 @@
 import React from 'react';
-import Panama from '../assets/img/panama.png';
+import Panama from '../assets/svg/panama-mapa.svg';
 import Mascot from '../assets/img/mascot.png'; // Imagen de la mascota
 
 const branches = [
-    { name: 'Sucursal Panamá Centro', location: 'Avenida Central, Panamá', link: '/location1' },
-    { name: 'Sucursal Costa del Este', location: 'Plaza Ocean Mall', link: '/location2' },
-    { name: 'Sucursal Albrook', location: 'Albrook Mall', link: '/location3' },
-    { name: 'Sucursal Clayton', location: 'Ciudad del Saber', link: '/location4' },
-    { name: 'Sucursal Via España', location: 'Plaza Edison', link: '/location5' },
+    { name: 'Market Plaza', location: 'Costaverde, La Chorrera', link: 'https://maps.app.goo.gl/3gYrLfixuFBhGUPE8' },
+    { name: 'Boulevard Penonomé', location: 'Penonomé', link: 'https://maps.app.goo.gl/6uKaRvKTZ8cVbxyM9' },
+    { name: 'Town Center', location: 'Costa del Este', link: 'https://maps.app.goo.gl/Nb6E8Rktw7C9xwRx7' },
+    { name: 'Multiplaza', location: 'Vía Israel', link: 'https://maps.app.goo.gl/DpNWmpcwihdtFB5V7' },
+    { name: 'Casco Antiguo', location: 'Ave. Central', link: 'https://maps.app.goo.gl/zqrMStPwWn2Hv6kv8' },
 ];
 
 const Locations = () => {
     return (
-        <section className="py-5" style={{ backgroundColor: '#F7F8FA' }}>
+        <section id='sucursales' className="py-5" style={{ backgroundColor: '#F7F8FA' }}>
             <div className="container">
                 {/* Título */}
                 <h2 className="text-center" style={{ color: '#0F1423', fontWeight: '900' }}>
@@ -42,6 +42,7 @@ const Locations = () => {
                     <div className="col-md-8">
                         <img
                             src={Panama}
+                            fill='#0F1423'
                             alt="Mapa de Panamá"
                             className="img-fluid rounded"
                             style={{ width: '100%' }}
@@ -62,16 +63,16 @@ const Locations = () => {
                     {branches.map((branch, index) => (
                         <div
                             key={index}
-                            className="col-md-2 d-flex flex-column align-items-center text-center"
+                            className="col-md-2 d-flex flex-column align-items-center text-center justify-content-end"
                             style={{
                                 minHeight: '120px', // Altura uniforme
                                 padding: '10px',
                             }}
                         >
-                            <h5 style={{ color: '#0E1422', fontSize: '1rem', fontWeight: 'bold' }}>
+                            <h5 style={{ color: '#0F1423', fontSize: '1.3rem', fontWeight: 'bold' }}>
                                 {branch.name}
                             </h5>
-                            <p style={{ fontSize: '0.9rem', color: '#11639B', marginBottom: '10px' }}>
+                            <p style={{ fontSize: '1.3rem', color: '#11639B', marginBottom: '10px' }}>
                                 {branch.location}
                             </p>
                             <div>
@@ -79,25 +80,30 @@ const Locations = () => {
                                     className="btn btn-primary btn-sm mb-2"
                                     style={{
                                         backgroundColor: '#11639B',
-                                        border: 'none',
+                                        minWidth: '8em',
                                         marginRight: '5px',
-                                        borderRadius: '50px'
+                                        borderRadius: '50px',
+                                        fontWeight:'700'
                                     }}
                                 >
                                     Reservar
                                 </button>
                             </div>
                             <div>
-                                <button
+                                <a
+                                    href={branch.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="btn btn-outline-secondary btn-sm"
                                     style={{ 
+                                        minWidth: '8em',    
                                         borderColor: '#11639B', 
                                         color: '#11639B', 
                                         borderRadius: '50px', 
                                     }}
                                 >
                                     Ver en Mapa
-                                </button>
+                                </a>
                             </div>
                         </div>
                     ))}
