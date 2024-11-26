@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import MenuPage from './pages/MenuPage';
 import CartPage from './pages/CartPage';
 import ConfirmationPage from './pages/ConfirmationPage';
+import ReservationPage from './pages/ReservationPage';
+import AboutUs from './pages/AboutUs';
 
 function App() {
     return (
@@ -13,6 +15,8 @@ function App() {
                 <Route path="/menu" element={<MenuPage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/confirmation" element={<ConfirmationPage />} />
+                <Route path="/reservation" element={<ReservationPage />} />
+                <Route path="/about-us" element={<AboutUs />} />
                 {/* Puedes agregar más rutas aquí */}
             </Routes>
         </Router>
