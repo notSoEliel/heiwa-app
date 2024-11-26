@@ -3,6 +3,7 @@ import BuyButton from '../BuyButton';
 import ramen1 from '../../assets/img/ramen1.png';
 import ramen2 from '../../assets/img/ramen2.png';
 import ramen3 from '../../assets/img/ramen3.png';
+import Circle from './Circle'; // Importamos el componente Circle
 
 const FavRamen = () => {
     const ramens = [
@@ -56,7 +57,7 @@ const FavRamen = () => {
                                 </p>
                                 <BuyButton 
                                     product={{ 
-                                        id: index + 1, // Generar un ID único para cada producto
+                                        id: index + 1, 
                                         name: ramen.name, 
                                         price: parseFloat(ramen.price) 
                                     }} 
@@ -67,46 +68,11 @@ const FavRamen = () => {
                     ))}
                 </div>
             </div>
+
             {/* Círculos decorativos */}
-            <div
-                style={{
-                    position: 'absolute',
-                    bottom: '-160px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '500px',
-                    height: '500px',
-                    backgroundColor: '#F7F8FA',
-                    borderRadius: '50%',
-                    zIndex: 0,
-                }}
-            ></div>
-            <div
-                style={{
-                    position: 'absolute',
-                    bottom: '-160px',
-                    left: '20%',
-                    transform: 'translateX(-50%)',
-                    width: '500px',
-                    height: '500px',
-                    backgroundColor: '#F7F8FA',
-                    borderRadius: '50%',
-                    zIndex: 0,
-                }}
-            ></div>
-            <div
-                style={{
-                    position: 'absolute',
-                    bottom: '-160px',
-                    left: '80%',
-                    transform: 'translateX(-50%)',
-                    width: '500px',
-                    height: '500px',
-                    backgroundColor: '#F7F8FA',
-                    borderRadius: '50%',
-                    zIndex: 0,
-                }}
-            ></div>
+            <Circle position="center" />
+            <Circle position="left" />
+            <Circle position="right" />
         </section>
     );
 };
