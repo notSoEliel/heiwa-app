@@ -53,7 +53,7 @@ const Matcha = () => {
                         </p>
                         <BuyButton 
                             product={{ 
-                                id: 'matcha-6oz', // Usar un identificador único
+                                id: '15', // Usar un identificador único
                                 name: 'Matcha 6oz', 
                                 price: parseFloat(matchaPrice) 
                             }} 
