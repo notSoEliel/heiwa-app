@@ -1,0 +1,190 @@
+/* Sección general */
+.about-us-header {
+    background-color: #BB002D;
+    padding: 5rem 2rem;
+}
+
+.about-us-header h1 {
+    color: white;
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+.about-us-header p {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* Misión y visión */
+.about-us-mission-vision {
+    background-color: #F7F8FA;
+    padding: 5rem 2rem;
+}
+
+.about-us-mission-vision .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-us-mission-vision h3 {
+    font-weight: 600;
+    color: #BB002D;
+}
+
+.about-us-mission-vision p {
+    font-size: 1rem;
+    color: #0D2B45;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Fundadora */
+.about-us-founder {
+    background-color: #F7F8FA;
+    padding: 5rem 2rem;
+}
+
+.about-us-founder h3 {
+    color: #BB002D;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.founder-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.founder-photo {
+    flex: 1 1 30%;
+    text-align: center;
+}
+
+.founder-photo img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.founder-photo h4 {
+    margin-top: 1rem;
+    color: #0D2B45;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.founder-text {
+    flex: 1 1 60%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #0D2B45;
+    text-align: justify;
+}
+
+/* Nuestro Personal */
+.about-us-team {
+    background-color: #F7F8FA;
+    padding: 5rem 2rem;
+}
+
+.about-us-team h3 {
+    color: #BB002D;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.team-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-photo {
+    flex: 1 1 30%;
+    text-align: center;
+}
+
+.team-photo img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.team-text {
+    flex: 1 1 60%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #0D2B45;
+    text-align: justify;
+}
+
+/* Compromiso con la Calidad */
+.about-us-quality {
+    background-color: #F7F8FA;
+    padding: 5rem 2rem;
+}
+
+.about-us-quality h3 {
+    color: #BB002D;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.quality-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.quality-photo {
+    flex: 1 1 30%;
+    text-align: center;
+}
+
+.quality-photo img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.quality-text {
+    flex: 1 1 60%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #0D2B45;
+    text-align: justify;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .about-us-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-us-header p,
+    .about-us-mission-vision p,
+    .founder-text,
+    .team-text,
+    .quality-text {
+        font-size: 0.9rem;
+    }
+
+    .founder-photo h4,
+    .team-text,
+    .quality-text {
+        font-size: 1rem;
+    }
+
+    .founder-content,
+    .team-content,
+    .quality-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
