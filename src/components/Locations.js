@@ -54,7 +54,7 @@ const Locations = () => {
                     {branches.map((branch, index) => (
                         <div
                             key={index}
-                            className="col-md-2 d-flex flex-column align-items-center text-center"
+                            className="col-md-2 d-flex flex-column justify-content-end align-items-center text-center"
                             style={{
                                 minHeight: '120px', 
                                 padding: '10px',
