@@ -20,7 +20,7 @@ const NavigationBar = () => {
                     <Nav.Link as={Link} to="/" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Home</Nav.Link>
                     <Nav.Link as={Link} to="/menu" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Menú</Nav.Link>
                     <Nav.Link as={Link} to="/reservation" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Reservas</Nav.Link>
-                    <Nav.Link href="#nosotros" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Nosotros</Nav.Link>
+                    <Nav.Link as={Link} to="/about-us" style={{ color: '#092035', margin: '0 20px', fontWeight: '900' }}>Nosotros</Nav.Link>
                 </Nav>
                 {/* Carrito con más margen */}
                 <Nav>

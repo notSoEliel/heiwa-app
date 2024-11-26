@@ -9,6 +9,10 @@ const ReservationPage = () => {
         name: 'Casco Antiguo',
         location: 'Avenida Central, Casco Antiguo',
         maxGuests: 6,
+        schedule: {
+            mondayToThursday: { open: '11:30', close: '22:00' },
+            fridayToSunday: { open: '11:30', close: '23:30' },
+        },
     });
 
     const [remainingTime, setRemainingTime] = useState(300); // 5 minutos en segundos
@@ -123,7 +127,7 @@ const ReservationPage = () => {
                                 />
                                 <div className="d-flex mb-4">
                                     <span
-                                        className="px-3 py-2 text-white"
+                                        className="px-3 py-2"
                                         style={{
                                             backgroundColor: 'white',
                                             color: '#BB002D',

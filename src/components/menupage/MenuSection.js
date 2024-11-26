@@ -17,6 +17,8 @@ import sake from '../../assets/img/sake.png';
 import veganMisoSoup from '../../assets/img/vegan-miso.png';
 import nigiri from '../../assets/img/nigiri.png';
 import boyNaruto from '../../assets/img/boy-narutos.png';
+import spicyGyoza from '../../assets/img/spicy-gyozas.png';
+
 import '../../styles/MenuSection.css'; // Importamos los estilos CSS
 
 const MenuSection = () => {
@@ -28,7 +30,7 @@ const MenuSection = () => {
         { id: 15, name: "Matcha", price: 3.0, category: "Bebidas", image: matcha },
         { id: 4, name: "Matcha Latte", price: 4.0, category: "Bebidas", image: matchaLatte },
         { id: 5, name: "Sushi Deluxe", price: 20.0, category: "Sushi", image: sushiDeluxe },
-        { id: 6, name: "Tempura", price: 10.0, category: "Entradas", image: tempura },
+        { id: 6, name: "Udon Tempura", price: 10.0, category: "Entradas", image: tempura },
         { id: 7, name: "Gyoza", price: 8.0, category: "Entradas", image: gyoza },
         { id: 8, name: "Té Verde", price: 3.0, category: "Bebidas", image: teVerde },
         { id: 9, name: "Yakitori", price: 12.0, category: "Entradas", image: yakitori },
@@ -38,7 +40,7 @@ const MenuSection = () => {
         { id: 13, name: "Sopa de Miso", price: 9.0, category: "Sopas", image: misoSoup },
         { id: 14, name: "Sopa de Miso Vegana", price: 10.0, category: "Sopas", image: veganMisoSoup },
         { id: 16, name: "Nigiri", price: 7.0, category: "Sushi", image: nigiri },
-
+        { id:17, name: "Spicy Gyozas", price: 12.0, category: "Entradas", image: spicyGyoza },
     ];
 
     const categories = ["Todos", "Sopas", "Bebidas", "Postres", "Entradas", "Sushi"];
