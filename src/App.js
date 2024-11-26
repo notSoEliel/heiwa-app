@@ -6,6 +6,7 @@ import CartPage from './pages/CartPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import ReservationPage from './pages/ReservationPage';
 import AboutUs from './pages/AboutUs';
+import GiftCardPage from './pages/GiftCardPage';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/confirmation" element={<ConfirmationPage />} />
                 <Route path="/reservation" element={<ReservationPage />} />
                 <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/gift-cards" element={<GiftCardPage />} />
                 {/* Puedes agregar más rutas aquí */}
             </Routes>
         </Router>

@@ -1,0 +1,88 @@
+/* Estilo general de la sección de Gift Card */
+#gift-card {
+    background-color: #F7F8FA;
+    padding: 40px 0 140px;
+    position: relative;
+}
+
+#gift-card h2 {
+    color: #0D2B45;
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#gift-card img {
+    width: 100%;  /* Hacer la imagen flexible al ancho del contenedor */
+    height: auto !important; /* Mantener la relación de aspecto y evitar una altura fija */
+    margin: 0 auto;  /* Centrar la imagen */
+}
+
+
+#gift-card h3 {
+    color: #0D2B45;
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+#gift-card .card-buttons button {
+    padding: 10px 20px;
+    background-color: #BB002D;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+#gift-card .card-buttons button:hover {
+    background-color: #9A0026;
+}
+
+/* Estilo del link para volver */
+#gift-card a {
+    color: #0D2B45;
+    font-size: 1rem;
+    text-decoration: none;
+    padding-top: 20px;
+}
+
+#gift-card a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para pantallas de 768px o menos (móviles) */
+@media (max-width: 768px) {
+    /* Reducir los márgenes de la tarjeta en pantallas pequeñas */
+    #gift-card h2 {
+        font-size: 2rem;
+        margin-bottom: 50px;  /* Reducir margen inferior */
+    }
+
+    #gift-card h3 {
+        font-size: 2rem !important;  /* Reducir tamaño de fuente para encabezado */
+    }
+
+    #gift-card p {
+        font-size: 1rem !important;  /* Reducir tamaño de fuente para encabezado */
+    }
+
+    /* Ajustar el tamaño de la imagen de la tarjeta */
+    #gift-card img {
+        width: 100%;  /* Hacer la imagen más flexible */
+        height: auto;
+        margin: 0 auto 5em;  /* Centrar imagen */
+    }
+
+    /* Reducir el padding de la sección para pantallas pequeñas */
+    #gift-card {
+        padding: 20px 0 80px;
+    }
+
+    /* Ajustar los botones de la tarjeta */
+    #gift-card .card-buttons button {
+        font-size: 1rem !important;  /* Reducir tamaño del texto */
+        padding: 8px 16px;  /* Reducir tamaño del botón */
+    }
+}
