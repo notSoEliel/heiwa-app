@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useCart } from '../context/CartContext'; // Ajusta la ruta según tu estructura
+import useCart from '../hooks/useCart';
 
 const BuyButton = ({ product, style }) => {
     const { addToCart } = useCart();

@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { useCart } from '../context/CartContext'; // Importa el contexto global
+import useCart from '../hooks/useCart';
 import { useNavigate } from 'react-router-dom';
+import PedidosCard from '../components/PedidosCard';
+import clienteAxios from '../config/axios';
 
 
 const CartPage = () => {
     const navigate = useNavigate();
+    const [nombre, setNombre] = useState("")
+    const [alerta, setAlerta] = useState("")
 
-    const { cartItems, updateQuantity } = useCart(); // Usa el estado global y las funciones del contexto
+
+    const [loading, setLoading] = useState(false)
+    const { cartItems, updateQuantity, setCartItems } = useCart(); // Usa el estado global y las funciones del contexto
 
     const handleIncrease = (id) => {
         updateQuantity(id, 1); // Incrementa la cantidad en 1
@@ -21,12 +27,55 @@ const CartPage = () => {
         const itemPrice = parseFloat(item.price) || 0; // Convierte el precio a número o usa 0 si es inválido
         return acc + itemPrice * item.quantity;
     }, 0);
-    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        try {
+            setLoading(true)
+
+            if (!nombre) {
+                setAlerta("Nombre del cliente vacio")
+                return
+            }
+
+            // Usar for...of en lugar de forEach
+            for (let e of cartItems) {
+                await clienteAxios.post("/Pedido", {
+                    cliente: nombre,
+                    Producto: e.name,
+                    Value: e.price,
+                    quantity: e.quantity
+                })
+            }
+
+            setCartItems([])
+            setNombre("")
+            navigate("/confirmation")
+
+        } catch (err) {
+            console.error(err)  // Agregar un console.log para saber el error
+            throw new Error(err)
+        } finally {
+            setLoading(false)  // Esto se ejecutará después de que todas las promesas se resuelvan
+        }
+    }
+
     return (
         <div style={{ backgroundColor: '#F7F8FA', minHeight: '100vh' }}>
             <Navbar />
             <div className="container mt-5">
                 <h2 style={{ color: '#BB002D', fontWeight: '900', marginBottom: '20px' }}>Pedido</h2>
+                {alerta && <div style={{ color: '#BB002D' }}>{alerta}</div>} {/* Mensaje de éxito o error */}
+                <div className='form-group'>
+                    <input
+                        className='form-control'
+                        value={nombre}
+                        onChange={e => setNombre(e.target.value)}
+                        placeholder='Nombre del cliente'
+                        required
+                    />
+                </div>
                 <div>
                     {cartItems.map(item => (
                         <div
@@ -81,7 +130,7 @@ const CartPage = () => {
                             fontWeight: '900',
                             borderRadius: '10px',
                         }}
-                        onClick={() => navigate('/menu')} // Reemplaza '/menu' con la ruta correcta de tu página de menú
+                        onClick={() => navigate('/menu')}
                     >
                         Seguir pidiendo
                     </button>
@@ -93,12 +142,28 @@ const CartPage = () => {
                             fontWeight: '900',
                             borderRadius: '10px',
                         }}
-                        onClick={() => navigate('/confirmation')} // Reemplaza '/confirmation' con la ruta de la página de confirmación
+                        // onClick={() => navigate('/confirmation')}
+                        onClick={handleSubmit}
                     >
                         Realizar pedido
                     </button>
                 </div>
             </div>
+
+            {loading && (
+                <div className="loader-overlay">
+                    <div className="loader"></div>
+                </div>
+            )}
+
+            <section className='container'>
+                <h2 className=' mt-3' style={{
+                    color: '#BB002D',
+                    fontWeight: '900',
+                    borderRadius: '10px',
+                }}>Pedidos Realizados</h2>
+                <PedidosCard />
+            </section>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar'; // Navbar existente
 import Footer from '../components/Footer'; // Footer existente
 import Mascot from '../assets/img/boy_Red.png'; // Mascota
+import { crearReserva } from '../services/api';
 
 const ReservationPage = () => {
     // Información inicial de la sucursal
@@ -13,53 +14,84 @@ const ReservationPage = () => {
             mondayToThursday: { open: '11:30', close: '22:00' },
             fridayToSunday: { open: '11:30', close: '23:30' },
         },
-    });
+    })
 
-    const [remainingTime, setRemainingTime] = useState(300); // 5 minutos en segundos
+    const [loading, setLoading] = useState(false)
+    const [mensaje, setMensaje] = useState('')
+
+    const [remainingTime, setRemainingTime] = useState(600) // 5 minutos en segundos
     const [formData, setFormData] = useState({
-        name: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        specialRequest: '',
-        date: '',
-        time: '',
-        guests: 1,
-    });
+        Nombre: '',
+        Telefono: '',
+        SpecialRequest: '',
+        FechaHoraReserva: '',
+    })
 
     // Actualizar el tiempo restante cada segundo
     useEffect(() => {
         const timer = setInterval(() => {
-            setRemainingTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
-        }, 1000);
+            setRemainingTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0))
+        }, 1000)
 
-        return () => clearInterval(timer); // Limpieza del intervalo
-    }, []);
+        return () => clearInterval(timer) // Limpieza del intervalo
+    }, [])
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
+    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Reservación confirmada:', formData);
-        alert('¡Tu reserva ha sido confirmada!');
-    };
+    const handleSubmit = async e => {
+        e.preventDefault()
+        setLoading(true)
+
+        try {
+            // Verificar que todos los campos estén llenos
+            if (!formData.Nombre || !formData.Telefono || !formData.FechaHoraReserva) {
+                setMensaje('Por favor, completa todos los campos.');
+                return;
+            }
+
+            // Verificar que la hora esté entre las 11 AM y 10 PM
+            const fechaHora = new Date(formData.FechaHoraReserva);
+            const hora = fechaHora.getHours();
+            if (hora < 11 || hora > 22) {
+                setMensaje('La hora debe estar entre las 11 AM y 10 PM.');
+                return;
+            }
+
+            const { msg, response } = await crearReserva(formData)
+            setMensaje(`${msg}`)
+            
+            setFormData({
+                Nombre: '',
+                Telefono: '',
+                SpecialRequest: '',
+                FechaHoraReserva: '',
+            })
+
+        } catch (error) {
+            console.error(error)
+            setMensaje("Error al momento de hacer tu reserva")
+        }
+        finally {
+            setLoading(false)
+        }
+    }
 
     // Convertir segundos en formato MM:SS
     const formatTime = (seconds) => {
-        const minutes = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-    };
+        const minutes = Math.floor(seconds / 60)
+        const secs = seconds % 60
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
+    }
 
     return (
         <div>
             <Navbar />
 
             {/* Sección inicial */}
-            <section className="reservation-header py-5" style={{ backgroundColor: '#F7F8FA' }}>
+            {/* <section className="reservation-header py-5" style={{ backgroundColor: '#F7F8FA' }}>
                 <div className="container text-center">
                     <h1 style={{ color: '#BB002D', fontWeight: '900' }}>
                         ¿En qué sucursal te guardamos un espacio?
@@ -79,7 +111,7 @@ const ReservationPage = () => {
                         <option value="casco-antiguo">{branch.name}</option>
                     </select>
                 </div>
-            </section>
+            </section> */}
 
             {/* Sección de la reserva */}
             <section className="reservation-form py-5" style={{ backgroundColor: '#BB002D' }}>
@@ -100,8 +132,8 @@ const ReservationPage = () => {
                                 <input
                                     type="text"
                                     placeholder="Nombre"
-                                    name="name"
-                                    value={formData.name}
+                                    name="Nombre"
+                                    value={formData.Nombre}
                                     onChange={handleChange}
                                     className="form-control mb-4"
                                     style={{
@@ -111,7 +143,7 @@ const ReservationPage = () => {
                                         color: 'white',
                                     }}
                                 />
-                                <input
+                                {/* <input
                                     type="text"
                                     placeholder="Apellido"
                                     name="lastName"
@@ -124,7 +156,7 @@ const ReservationPage = () => {
                                         borderRadius: '50px',
                                         color: 'white',
                                     }}
-                                />
+                                /> */}
                                 <div className="d-flex mb-4">
                                     <span
                                         className="px-3 py-2"
@@ -139,8 +171,8 @@ const ReservationPage = () => {
                                     <input
                                         type="text"
                                         placeholder="Número de Teléfono"
-                                        name="phone"
-                                        value={formData.phone}
+                                        name="Telefono"
+                                        value={formData.Telefono}
                                         onChange={handleChange}
                                         className="form-control"
                                         style={{
@@ -151,7 +183,7 @@ const ReservationPage = () => {
                                         }}
                                     />
                                 </div>
-                                <input
+                                {/* <input
                                     type="email"
                                     placeholder="Correo Electrónico"
                                     name="email"
@@ -164,8 +196,8 @@ const ReservationPage = () => {
                                         borderRadius: '50px',
                                         color: 'white',
                                     }}
-                                />
-                                <textarea
+                                /> */}
+                                {/* <textarea
                                     placeholder="Solicitud Especial"
                                     name="specialRequest"
                                     value={formData.specialRequest}
@@ -178,12 +210,12 @@ const ReservationPage = () => {
                                         borderRadius: '20px',
                                         color: 'white',
                                     }}
-                                />
+                                /> */}
                                 <div className="d-flex mb-4">
                                     <input
-                                        type="date"
-                                        name="date"
-                                        value={formData.date}
+                                        type="datetime-local"
+                                        name="FechaHoraReserva"
+                                        value={formData.FechaHoraReserva}
                                         onChange={handleChange}
                                         className="form-control me-2"
                                         style={{
@@ -193,7 +225,7 @@ const ReservationPage = () => {
                                             color: 'white',
                                         }}
                                     />
-                                    <input
+                                    {/* <input
                                         type="time"
                                         name="time"
                                         value={formData.time}
@@ -205,7 +237,23 @@ const ReservationPage = () => {
                                             borderRadius: '50px',
                                             color: 'white',
                                         }}
+                                    /> */}
+                                </div>
+                                <div className="text-center mt-5">
+                                    <input
+                                        value="Confirmar Reservación"
+                                        type="submit"
+                                        className="btn btn-light btn-lg"
+                                        style={{
+                                            borderRadius: '50px',
+                                            padding: '10px 30px',
+                                            fontWeight: '700',
+                                            color: '#BB002D',
+                                            border: '2px solid #BB002D',
+                                        }}
+
                                     />
+
                                 </div>
                             </form>
                         </div>
@@ -226,22 +274,16 @@ const ReservationPage = () => {
                         </div>
                     </div>
 
-                    {/* Botón confirmar */}
-                    <div className="text-center mt-5">
-                        <button
-                            type="submit"
-                            className="btn btn-light btn-lg"
-                            style={{
-                                borderRadius: '50px',
-                                padding: '10px 30px',
-                                fontWeight: '700',
-                                color: '#BB002D',
-                                border: '2px solid #BB002D',
-                            }}
-                        >
-                            Confirmar Reservación
-                        </button>
-                    </div>
+                    <section>
+                        {loading && (
+                            <div className="loader-overlay">
+                                <div className="loader"></div>
+                            </div>
+                        )}
+
+                        {mensaje && <div>{mensaje}</div>} {/* Mensaje de éxito o error */}
+                    </section>
+
                 </div>
             </section>
 

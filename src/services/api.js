@@ -1,7 +1,23 @@
-import axios from 'axios';
+import clienteAxios from "../config/axios.js";
 
-const api = axios.create({
-    baseURL: 'https://api.heiwa.com',
-});
+const crearReserva = async reserva => {
 
-export default api;
+   try {
+      const response = await clienteAxios.post("/reserva", reserva)
+      return {
+         msg: response.data.msg,
+         response,
+         error: false
+      }
+
+   } catch (error) {
+      return{
+         msg: "Error al momento de crear la reserva",
+         error: true
+      }
+   }
+}
+
+export {
+   crearReserva
+}
